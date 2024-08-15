@@ -1,0 +1,39 @@
+{
+  "name": "codemirror-iecst",
+  "version": "1.0.0",
+  "description": "Structured Text language support for Codemirror, includes syntax highlight based on IEC 61131-3.",
+  "author": "Juexro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Juexro/codemirror-iecst"
+  },
+  "keywords": [
+    "PLC",
+    "codemirror",
+    "editor",
+    "IEC61131-3",
+    "st"
+  ],
+  "scripts": {
+    "build": "lezer-generator src/st.grammar -o src/parser && rollup -c"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "devDependencies": {
+    "codemirror": "^6.0.1",
+    "@lezer/generator": "^1.1.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^2.60.2",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-ts": "^2.0.4",
+    "typescript": "^4.3.4"
+  },
+  "license": "MIT"
+}

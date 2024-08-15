@@ -7,9 +7,7 @@ This package implements iecst language support for the CodeMirror code editor.
 # API Reference
 
 <dt id="user-content-javascript">
-  <code>
-    <strong>iecst</strong>() → <a href="https://codemirror.net/docs/ref#language.LanguageSupport">LanguageSupport</a>
-  </code>
+  <code><strong>iecst</strong>() → <a href="https://codemirror.net/docs/ref#language.LanguageSupport">LanguageSupport</a></code>
 </dt>
 
 iecst language support

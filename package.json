@@ -1,6 +1,6 @@
 {
   "name": "codemirror-iecst",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Structured Text language support for Codemirror, includes syntax highlight based on IEC 61131-3.",
   "author": "Juexro",
   "repository": {

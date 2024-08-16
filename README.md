@@ -6,11 +6,15 @@ This package implements iecst language support for the CodeMirror code editor.
 
 # API Reference
 
-<dt id="user-content-javascript">
+<dt>
   <code><strong>iecst</strong>() → <a href="https://codemirror.net/docs/ref#language.LanguageSupport">LanguageSupport</a></code>
 </dt>
+Syntax highlight for the CodeMirror code editor.
 
-iecst language support
+<dt>
+  <code><strong>autocomplete</strong>() → <a href="https://codemirror.net/docs/ref/#state.Extension">Extension</a></code>
+</dt>
+Autocompletion for the CodeMirror code editor.
 
 # How to use
 
@@ -18,9 +22,12 @@ iecst language support
 $ npm install codemirror codemirror-iecst
 ```
 
+
+#### React Demo
+
 ```jsx
 import React, { useEffect, useRef } from 'react';
-import { iecst } from 'codemirror-iecst';
+import { iecst, autocomplete } from 'codemirror-iecst';
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
 
@@ -32,7 +39,8 @@ const StructuredTextEditor: React.FC = () => {
       doc: "PROGRAM END_PROGRAM",
       extensions: [
         basicSetup,
-        iecst()
+        iecst(),
+        autocomplete()
       ]
     });
     const editor = new EditorView({

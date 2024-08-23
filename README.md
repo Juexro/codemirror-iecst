@@ -6,29 +6,51 @@ This package implements iecst language support for the CodeMirror code editor.
 
 # API Reference
 
-<dt>
-  <code><strong>iecst</strong>() → <a href="https://codemirror.net/docs/ref#language.LanguageSupport">LanguageSupport</a></code>
-</dt>
-Syntax highlight for the CodeMirror code editor.
++ `setup(options: SetupOptions): Extension[]` provide an example configuration for the editor
++ `iecst(): LanguageSupport`  iecst language support, includes syntax highlight
++ `autocomplete(): Extension` code completion
++ `breakpointGutter(): Extension` allow breakpoints
++ `getMarkLines(view: EditorView): Line[]`  get lines where breakpoints are located
 
-<dt>
-  <code><strong>autocomplete</strong>() → <a href="https://codemirror.net/docs/ref/#state.Extension">Extension</a></code>
-</dt>
-Autocompletion for the CodeMirror code editor.
+#### Interfaces
+
+```typescript
+// All default values are true.
+interface SetupOptions {
+  lineNumbers: boolean;
+  highlightActiveLineGutter: boolean;
+  highlightSpecialChars: boolean;
+  history: boolean;
+  foldGutter: boolean;
+  drawSelection: boolean;
+  dropCursor: boolean;
+  allowMultipleSelections: boolean;
+  indentOnInput: boolean;
+  syntaxHighlighting: boolean;
+  bracketMatching: boolean;
+  closeBrackets: boolean;
+  autocompletion: boolean;
+  rectangularSelection: boolean;
+  crosshairCursor: boolean;
+  highlightActiveLine: boolean;
+  highlightSelectionMatches: boolean;
+  keymap: boolean;
+  breakpointGutter: boolean;
+}
+```
 
 # How to use
 
 ```bash
-$ npm install codemirror codemirror-iecst
+$ npm install codemirror-iecst
 ```
-
 
 #### React Demo
 
 ```jsx
 import React, { useEffect, useRef } from 'react';
-import { iecst, autocomplete } from 'codemirror-iecst';
-import { basicSetup, EditorView } from 'codemirror';
+import { setup } from 'codemirror-iecst';
+import { EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
 
 const StructuredTextEditor: React.FC = () => {
@@ -38,9 +60,7 @@ const StructuredTextEditor: React.FC = () => {
     const state = EditorState.create({
       doc: "PROGRAM END_PROGRAM",
       extensions: [
-        basicSetup,
-        iecst(),
-        autocomplete()
+        setup()
       ]
     });
     const editor = new EditorView({
